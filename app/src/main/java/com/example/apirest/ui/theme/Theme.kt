@@ -1,58 +1,57 @@
-package com.example.apirest.ui.theme
+// ================================================================================================
+// Archivo   : ui/theme/Theme.kt
+// Propósito : Define ApiRestTheme, el tema Material 3 que envuelve toda la interfaz.
+// ================================================================================================
+package com.example.apirest.ui.theme  // Paquete del tema
 
-import android.app.Activity
-import android.os.Build
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.platform.LocalContext
+import android.os.Build                                    // Versión de Android del equipo
+import androidx.compose.foundation.isSystemInDarkTheme     // Detecta modo oscuro
+import androidx.compose.material3.MaterialTheme            // Tema Material 3
+import androidx.compose.material3.darkColorScheme          // Esquema de colores oscuro
+import androidx.compose.material3.dynamicDarkColorScheme   // Colores dinámicos oscuros
+import androidx.compose.material3.dynamicLightColorScheme  // Colores dinámicos claros
+import androidx.compose.material3.lightColorScheme         // Esquema de colores claro
+import androidx.compose.runtime.Composable                 // Anotación @Composable
+import androidx.compose.ui.platform.LocalContext           // Contexto actual de Compose
 
-private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+private val DarkColorScheme = darkColorScheme(  // Paleta para modo oscuro
+    primary = Blue80,                           // Color primario
+    secondary = BlueGrey80,                     // Color secundario
+    tertiary = Teal80                           // Color terciario
 )
 
-private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+private val LightColorScheme = lightColorScheme(  // Paleta para modo claro
+    primary = Blue40,                             // Color primario
+    secondary = BlueGrey40,                       // Color secundario
+    tertiary = Teal40                             // Color terciario
 )
 
-@Composable
-fun ApiRest_Grupo_Bangarang_2012Theme(
-    darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
-    content: @Composable () -> Unit
+// ================================================================================================
+// Función   : ApiRestTheme
+// Propósito : Elige la paleta (clara, oscura o dinámica) y la aplica al contenido recibido.
+// Parámetros: darkTheme    -> true si el equipo está en modo oscuro.
+//             dynamicColor -> true para usar colores del fondo de pantalla (Android 12+).
+//             content      -> interfaz que recibirá el tema.
+// ================================================================================================
+@Composable                                                                  // Función de interfaz
+fun ApiRestTheme(                                                            // Tema de la app
+    darkTheme: Boolean = isSystemInDarkTheme(),                              // Modo oscuro actual
+    dynamicColor: Boolean = false,                                           // Usa paleta propia
+    content: @Composable () -> Unit                                          // Contenido a decorar
 ) {
-    val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+    val colorScheme = when {                                                 // Selecciona la paleta
+        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {  // Android 12 o más
+            val context = LocalContext.current                               // Contexto de colores
+            if (darkTheme) dynamicDarkColorScheme(context)                   // Dinámica oscura
+            else dynamicLightColorScheme(context)                            // Dinámica clara
         }
-
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> DarkColorScheme                                         // Paleta oscura propia
+        else -> LightColorScheme                                             // Paleta clara propia
     }
 
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
-        content = content
+    MaterialTheme(                  // Aplica el tema Material 3
+        colorScheme = colorScheme,  // Colores elegidos
+        typography = Typography,    // Tipografía de Type.kt
+        content = content           // Interfaz decorada
     )
 }

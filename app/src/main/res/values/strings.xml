@@ -1,3 +1,8 @@
-<resources>
-    <string name="app_name">ApiRest_Grupo_Bangarang_2012</string>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- =========================================================================================== -->
+<!-- Archivo   : app/src/main/res/values/strings.xml                                             -->
+<!-- Propósito : Textos de la app. app_name es el nombre que aparece bajo el ícono.              -->
+<!-- =========================================================================================== -->
+<resources>                                   <!-- Contenedor de recursos -->
+    <string name="app_name">ApiRest</string>  <!-- Nombre visible de la app -->
 </resources>

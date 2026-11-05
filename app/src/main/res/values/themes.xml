@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <style name="Theme.ApiRest_Grupo_Bangarang_2012" parent="android:Theme.Material.Light.NoActionBar" />
+<!-- =========================================================================================== -->
+<!-- Archivo   : app/src/main/res/values/themes.xml                                              -->
+<!-- Propósito : Tema XML base de la ventana. Los colores reales los aplica Compose (Theme.kt).  -->
+<!-- =========================================================================================== -->
+<resources>  <!-- Contenedor de recursos -->
+    <!-- Tema sin barra de acción: la barra superior la dibuja Compose (TopAppBar) -->
+    <style name="Theme.ApiRest" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

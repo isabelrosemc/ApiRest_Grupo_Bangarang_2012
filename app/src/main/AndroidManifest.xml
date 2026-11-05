@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<!-- =========================================================================================== -->
+<!-- Archivo   : app/src/main/AndroidManifest.xml                                                -->
+<!-- Propósito : Declara permisos, tema, ícono y la actividad de inicio de la aplicación.        -->
+<!-- Nota      : XML no admite comentarios dentro de una etiqueta; por eso van sobre ella.       -->
+<!-- =========================================================================================== -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+
+    <uses-permission android:name="android.permission.INTERNET" />  <!-- Acceso a Internet -->
+
+
+    <!-- Datos generales de la app: respaldo, ícono, nombre, soporte RTL y tema base -->
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ApiRest_Grupo_Bangarang_2012">
+        android:theme="@style/Theme.ApiRest">
+
+
+        <!-- Actividad principal: exported="true" permite abrirla desde el launcher -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.ApiRest_Grupo_Bangarang_2012">
+            android:theme="@style/Theme.ApiRest">
+            <!-- MAIN + LAUNCHER: es la pantalla que se abre al tocar el ícono -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
     </application>
+
 
 </manifest>
